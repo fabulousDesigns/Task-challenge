@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# macOS files
+.DS_Store
+
+# Log files
+*.log
+
+# Compiled output
+dist/
+tmp/
+out-tsc/
+bazel-out/
+
+# Coverage directories
+coverage/
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Yarn cache directory
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env

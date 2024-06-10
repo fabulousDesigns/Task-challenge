@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-assignment-view-backend-deployment
+  labels:
+    app: book-assignment-view-backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: book-assignment-view-backend
+  template:
+    metadata:
+      labels:
+        app: book-assignment-view-backend
+    spec:
+      containers:
+        - name: book-assignment-view-backend
+          image: benmainapro10/book-assignment-view-backend:latest
+          ports:
+            - containerPort: 4000
+          env:
+            - name: HOST
+              value: "0.0.0.0"
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-assignment-view-backend-service
+spec:
+  selector:
+    app: book-assignment-view-backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 4000
+  type: LoadBalancer
